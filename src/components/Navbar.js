@@ -37,14 +37,22 @@ export default function Navbar() {
 const Nav = styled.nav`
   background-color: #313648;
   display: flex;
-  padding: 10px;
+  padding: 10px 10px;
   align-items: center;
+  text-align: center;
   justify-content: space-between;
+  height: 50px;
   .link {
     color: white;
     text-decoration: none;
     display: inline-block;
-    margin: 10px;
+    padding: 10px 10px;
+    height: 50px;
+    cursor: pointer;
+    &:hover{
+      background-color: white;
+      color: #313648;
+    }
   }
 `;
 
