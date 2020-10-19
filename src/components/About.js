@@ -5,13 +5,15 @@ export default function About() {
     <div>
       <h1>About</h1>
       <p>It is an easy and fun way to learn words and expand your vocabulary</p>
-      <h2>Learning:</h2>
+      <br/>
+      <h2>Learning</h2>
       <p>
         This is the best way to memorize new expressions by associating words
         with pictures and descriptions. You get a picture or description and
         your goal is to guess the right word.
       </p>
-      <h2>Memory game:</h2>
+      <br/>
+      <h2>Memory game</h2>
       <p>
         Memory game is a card game in which all of the cards are laid face down
         on a surface and two cards are flipped face up over each turn. The

@@ -19,6 +19,12 @@ export default function Navbar() {
           <Link className="link" to="/memory">
             Memory game
           </Link>
+          <Link className="link" to="/">
+            Login
+          </Link>
+          <Link className="link" to="/">
+            Registration
+          </Link>
         </FlexBox>
       </Nav>
     </div>
