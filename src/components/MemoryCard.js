@@ -1,36 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from 'react';
 import styled from "styled-components";
 
-export default function MemoryCard() {
-  const randomWords = require("random-words");
-  const Owlbot = require("owlbot-js");
-  var client = Owlbot("d9babcf6a7b2f35f7cf176123956ef6dbe4b5585");
-  const [card, setCard] = useState();
-  const [err, setErr] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  let word;
+export default function MemoryCard({content, word}) {
+  const [cont] = useState(content)
+  // const [identifier] = useState(word)
 
-  useEffect(() => {
-    word = randomWords(1);
-    setIsLoading(true);
-    setErr(false);
-    client
-      .define(word)
-      .then((result) => {
-        setCard(result);
-        setIsLoading(false);
-      })
-      .catch((e) => {
-        setErr(true);
-      });
-  }, [err]);
-
-  if (!isLoading) {
-    return [
-      <GameCard onClick={()=>{console.log(card.word);}} >{card.word}</GameCard>,
-      <GameCard onClick={()=>{console.log(card.definitions[0].definition);}}>{card.definitions[0].definition}</GameCard>,
-    ];
-  } else return [];
+  return (
+    <GameCard>
+      {cont}
+    </GameCard>
+  )
 }
 
 const GameCard = styled.div`
@@ -45,5 +24,5 @@ const GameCard = styled.div`
   text-align: center;
   overflow:scroll;
   color:black;
+  cursor: pointer;
 `;
-

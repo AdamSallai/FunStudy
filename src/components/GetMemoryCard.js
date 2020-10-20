@@ -1,0 +1,37 @@
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import MemoryCard from "./MemoryCard";
+
+export default function GetMemoryCard() {
+  const randomWords = require("random-words");
+  const Owlbot = require("owlbot-js");
+  var client = Owlbot("d9babcf6a7b2f35f7cf176123956ef6dbe4b5585");
+  const [card, setCard] = useState();
+  const [err, setErr] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  let word;
+
+  useEffect(() => {
+    word = randomWords(1);
+    setIsLoading(true);
+    setErr(false);
+    client
+      .define(word)
+      .then((result) => {
+        setCard(result);
+        setIsLoading(false);
+      })
+      .catch((e) => {
+        setErr(true);
+      });
+  }, [err]);
+
+  if (!isLoading) {
+    return [
+      <MemoryCard content={card.word} word={card.word}>{card.word}</MemoryCard>,
+      <MemoryCard content={card.definitions[0].definition} word={card.word}></MemoryCard>,
+    ];
+  } else return [];
+}
+
+

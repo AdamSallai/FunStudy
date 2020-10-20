@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import MemoryCard from "./MemoryCard";
+import GetMemoryCard from "./GetMemoryCard";
 
 export default function MemoryGame() {
   const content = [];
   for (let i = 0; i < 5; i++) {
-    const memo = MemoryCard();
+    const memo = GetMemoryCard();
     content.push(memo[0]);
     content.push(memo[1]);
   }
