@@ -6,6 +6,7 @@ import MemoryGame from "./components/MemoryGame";
 import LearningSite from "./components/LearningSite";
 import styled, { createGlobalStyle } from "styled-components";
 import Data from "./components/Data";
+import LearningData from "./components/LearningData"
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       />
 
       <Route path="/memorygame" exact component={Data} />
+      <Route path="/learning" exact component={LearningData} />
     </Router>
   );
 }
