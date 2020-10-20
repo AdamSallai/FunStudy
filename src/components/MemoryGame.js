@@ -3,13 +3,21 @@ import MemoryCard from "./MemoryCard";
 
 export default function MemoryGame() {
 
-  const cards = [];
-  for (let i = 0; i < 10; i++) {
-    cards.push(i)
+
+  const content = [];
+  for (let i = 0; i < 5; i++) {
+    const memo = MemoryCard()
+    content.push(memo[0])
+    content.push(memo[1])
   }
 
-  console.log(cards);
-  return cards.map((card) => {
-    return <MemoryCard key={card}/>
-  })
+  console.log(content);
+  shuffle(content)
+
+  return <div>{content}</div>
+}
+
+
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
 }
