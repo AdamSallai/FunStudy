@@ -11,5 +11,5 @@ export default async function GetCardData() {
   });
   
 
-  return resultData;
+  return await resultData;
 }

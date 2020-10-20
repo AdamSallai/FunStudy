@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
+import StartMemoryGame from "./components/StartMemoryGame";
 import MemoryGame from "./components/MemoryGame";
 import LearningSite from "./components/LearningSite";
 import styled, { createGlobalStyle } from "styled-components";
-import Data from "./components/Data";
 
 function App() {
   return (
@@ -20,13 +20,13 @@ function App() {
             <BodyStyle>
               <About />
               <LearningSite />
-              <MemoryGame />
+              <StartMemoryGame />
             </BodyStyle>
           </React.Fragment>
         )}
       />
 
-      <Route path="/memorygame" exact component={Data} />
+      <Route path="/memorygame" exact component={MemoryGame} />
     </Router>
   );
 }
