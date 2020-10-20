@@ -5,19 +5,29 @@ import About from "./components/About";
 import MemoryGame from "./components/MemoryGame";
 import LearningSite from "./components/LearningSite";
 import styled, { createGlobalStyle } from "styled-components";
-
+import Data from "./components/Data";
 
 function App() {
   return (
-    <div>
+    <Router>
       <GlobalStyle />
       <Navbar />
-      <BodyStyle >
-        <About />
-        <LearningSite />
-        <MemoryGame />
-      </BodyStyle>
-    </div>
+      <Route
+        exact
+        path="/"
+        render={(props) => (
+          <React.Fragment>
+            <BodyStyle>
+              <About />
+              <LearningSite />
+              <MemoryGame />
+            </BodyStyle>
+          </React.Fragment>
+        )}
+      />
+
+      <Route path="/memorygame" exact component={Data} />
+    </Router>
   );
 }
 
@@ -29,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const BodyStyle = styled.div `
+const BodyStyle = styled.div`
   padding: 20px 0;
   width: 70%;
   position: relative;
