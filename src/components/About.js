@@ -1,8 +1,10 @@
 import React from "react";
+import styled from 'styled-components';
+
 
 export default function About() {
   return (
-    <div>
+    <AboutStyle id="about">
       <h1>About</h1>
       <p>It is an easy and fun way to learn words and expand your vocabulary</p>
       <br/>
@@ -22,6 +24,10 @@ export default function About() {
         other one is a picture of that word or explanation. Your goal is to find
         all of the pairs before the time is out.
       </p>
-    </div>
+    </AboutStyle>
   );
 }
+
+const AboutStyle = styled.div`
+  margin: 30px 0px;
+`

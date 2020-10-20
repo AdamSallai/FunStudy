@@ -9,15 +9,15 @@ import styled, { createGlobalStyle } from "styled-components";
 
 function App() {
   return (
-    <Router>
+    <div>
       <GlobalStyle />
       <Navbar />
       <BodyStyle >
-        <Route exact path="/" component={About} />
-        <Route exact path="/learning_site" component={LearningSite} />
-        <Route exact path="/memory" component={MemoryGame} />
+        <About />
+        <LearningSite />
+        <MemoryGame />
       </BodyStyle>
-    </Router>
+    </div>
   );
 }
 
