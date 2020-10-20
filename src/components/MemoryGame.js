@@ -1,8 +1,15 @@
 import React from "react";
-import styled from "styled-components";
-import GetCardData from './GetCardData';
+import MemoryCard from "./MemoryCard";
 
 export default function MemoryGame() {
-    console.log(GetCardData());
-  return <h1>MEMORY GAME</h1>;
+
+  const cards = [];
+  for (let i = 0; i < 10; i++) {
+    cards.push(i)
+  }
+
+  console.log(cards);
+  return cards.map((card) => {
+    return <MemoryCard key={card}/>
+  })
 }
