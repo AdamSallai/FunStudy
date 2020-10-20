@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import LearningCard from './LearningCard';
 
 export default function LearningData() {
   const randomWords = require("random-words");
@@ -8,6 +9,8 @@ export default function LearningData() {
   const [card, setCard] = useState();
   const [err, setErr] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [guess, setGuess] = useState();
+  const [points, setPoints] = useState(0);
   let word;
 
   useEffect(() => {
@@ -24,7 +27,7 @@ export default function LearningData() {
         console.log("eh");
         setErr(true);
       });
-  }, [err]);
+  }, [err, guess]);
 
   if (isLoading) {
     return (
@@ -38,18 +41,7 @@ export default function LearningData() {
       }
     })
     return (
-      <div className="card">
-        <p>{card.word}</p>
-        <img src={image} alt="" />
-        <p>{card.definitions[0].definition}</p>
-
-        <form action="/learning">
-          <label htmlFor="answer">Your guess: </label>
-            <input type="text"></input>
-          <button type="submit">Guess</button>
-      </form>
-
-      </div>
+      <LearningCard callback={setGuess} card={card} image={image} points={points} setPoints={setPoints}/>
     );
   }
 }
