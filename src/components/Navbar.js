@@ -49,7 +49,10 @@ export default function Navbar() {
 }
 
 const Nav = styled.nav`
-  position: relative;
+z-index: 2;
+  position: fixed;
+  width: 100%;
+  top: 0;
   background-color: #313648;
   display: flex;
   padding: 10px;
@@ -77,6 +80,7 @@ const Nav = styled.nav`
 `;
 
 const FlexBox = styled.div`
+  position:relative;
   display: flex;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -99,7 +103,7 @@ const Img = styled.img`
     display: inline-block;
     width: 50px;
     position: absolute;
-    top: 20px;
+    top: -50px;
     right: 40px;
     cursor: pointer;
     &:hover {
