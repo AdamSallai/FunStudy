@@ -19,13 +19,17 @@ export default function Navbar() {
         <Link className="link" to="about" smooth={true} duration={1000}>
           <h1>Fun Study</h1>
         </Link>
-
         <FlexBox dropdownStatus={dropdownStatus}>
           <Img onClick={changeDropdown} src="./dropdown.png"></Img>
           <Link className="link" to="about" smooth={true} duration={1000}>
             About
           </Link>
-          <Link className="link" to="learning_site" smooth={true} duration={1000}>
+          <Link
+            className="link"
+            to="learning_site"
+            smooth={true}
+            duration={1000}
+          >
             Learning site
           </Link>
           <Link className="link" to="memory" smooth={true} duration={1000}>
@@ -39,9 +43,7 @@ export default function Navbar() {
           </Link>
         </FlexBox>
       </Nav>
-      <ArrowToTop onClick={() => scroll.scrollToTop()}>
-        ↑
-          </ArrowToTop>
+      <ArrowToTop onClick={() => scroll.scrollToTop()}>↑</ArrowToTop>
     </div>
   );
 }
@@ -50,23 +52,23 @@ const Nav = styled.nav`
   position: relative;
   background-color: #313648;
   display: flex;
-  padding: 10px 10px;
+  padding: 10px;
   align-items: center;
-  text-align: center;
   justify-content: space-between;
-  height: 50px;
   .link {
     color: white;
     text-decoration: none;
     display: inline-block;
-    padding: 10px 10px;
-    height: 50px;
+    padding: 10px;
+    border-radius:10px;
+    font-size: 20px;
     cursor: pointer;
     &:hover{
       background-color: white;
       color: #313648;
     }
-    h1 {
+  }
+  h1 {
     font-size: 36px;
   }
   @media (max-width: 768px) {
@@ -115,4 +117,4 @@ const ArrowToTop = styled.button`
   height: 50px;
   border-radius: 50px;
   font-size: 30px;
-`
+`;
