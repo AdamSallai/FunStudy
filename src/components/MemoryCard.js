@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 export default function MemoryCard() {
   const randomWords = require("random-words");
@@ -16,7 +17,6 @@ export default function MemoryCard() {
     client
       .define(word)
       .then((result) => {
-        console.log(result);
         setCard(result);
         setIsLoading(false);
       })
@@ -27,8 +27,23 @@ export default function MemoryCard() {
 
   if (!isLoading) {
     return [
-        <div>{card.word}</div>,
-        <div>{card.definitions[0].definition}</div>
-  ];
+      <GameCard onClick={()=>{console.log(card.word);}} >{card.word}</GameCard>,
+      <GameCard onClick={()=>{console.log(card.definitions[0].definition);}}>{card.definitions[0].definition}</GameCard>,
+    ];
   } else return [];
 }
+
+const GameCard = styled.div`
+  height: 200px;
+  width: 150px;
+  font-size: 20px;
+  border-radius: 5%;
+  border-color: black;
+  border-width: 5px;
+  border-style:solid;
+  padding: 10px 10px;
+  text-align: center;
+  overflow:scroll;
+  color:black;
+`;
+
