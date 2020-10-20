@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import MemoryCard from "./MemoryCard";
 
 export default function GetMemoryCard() {
@@ -9,10 +8,9 @@ export default function GetMemoryCard() {
   const [card, setCard] = useState();
   const [err, setErr] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  let word;
 
   useEffect(() => {
-    word = randomWords(1);
+    let word = randomWords(1);
     setIsLoading(true);
     setErr(false);
     client
@@ -28,8 +26,8 @@ export default function GetMemoryCard() {
 
   if (!isLoading) {
     return [
-      <MemoryCard content={card.word} word={card.word}>{card.word}</MemoryCard>,
-      <MemoryCard content={card.definitions[0].definition} word={card.word}></MemoryCard>,
+      <MemoryCard key={card.word} content={card.word} word={card.word} />,
+      <MemoryCard key={card.definitions[0].definition} content={card.definitions[0].definition} word={card.word} />,
     ];
   } else return [];
 }

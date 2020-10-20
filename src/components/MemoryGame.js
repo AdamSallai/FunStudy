@@ -4,7 +4,7 @@ import GetMemoryCard from "./GetMemoryCard";
 
 export default function MemoryGame() {
   const content = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 10; i++) {
     const memo = GetMemoryCard();
     content.push(memo[0]);
     content.push(memo[1]);
@@ -20,6 +20,11 @@ function shuffle(array) {
 }
 
 const GameBoard = styled.div`
-  display: flexbox;
+  display: flex;
   flex-wrap:wrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  background-color: #eeeeff;
+  margin: auto;
 `;
