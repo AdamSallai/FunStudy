@@ -8,6 +8,7 @@ import LearningSite from "./components/LearningSite";
 import styled, { createGlobalStyle } from "styled-components";
 import Data from "./components/Data";
 import LearningData from "./components/LearningData";
+import { SelectedCardProvider } from "./components/SelectedCardContext";
 
 function App() {
   return (
@@ -31,8 +32,9 @@ function App() {
           </BodyStyle>
         )}
       />
-
-      <Route path="/memorygame" exact component={MemoryGame} />
+      <SelectedCardProvider>
+        <Route path="/memorygame" exact component={MemoryGame} />
+      </SelectedCardProvider>
       <Route path="/learning" exact component={LearningData} />
     </Router>
   );
