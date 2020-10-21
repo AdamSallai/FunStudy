@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
+import StartMemoryGame from "./components/StartMemoryGame";
 import MemoryGame from "./components/MemoryGame";
 import LearningSite from "./components/LearningSite";
 import styled, { createGlobalStyle } from "styled-components";
@@ -31,7 +32,7 @@ function App() {
         )}
       />
 
-      <Route path="/memorygame" exact component={Data} />
+      <Route path="/memorygame" exact component={MemoryGame} />
       <Route path="/learning" exact component={LearningData} />
     </Router>
   );

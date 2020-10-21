@@ -1,50 +1,30 @@
 import React from "react";
 import styled from "styled-components";
+import GetMemoryCard from "./GetMemoryCard";
 
 export default function MemoryGame() {
-  return (
-    <Memory id="memory">
-      <Form action="/memorygame">
-      <h1>Memory game</h1>
-        <label htmlFor="difficulty"></label>
-        <div>
-          <h4>Choose difficulty:</h4>
-        <select id="difficulty" name="difficulty">
-          <option value="easy">Easy</option>
-          <option value="hard">Hard</option>
-        </select>
-        </div>
-        <button>Start</button>
-      </Form>
-      <Img>image</Img>
-    </Memory>
-  );
+  const content = [];
+  for (let i = 0; i < 10; i++) {
+    const memo = GetMemoryCard();
+    content.push(memo[0]);
+    content.push(memo[1]);
+  }
+
+  shuffle(content);
+
+  return <GameBoard>{content}</GameBoard>;
 }
 
-const Form = styled.form`
-  margin: 0px, 60px;
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
+
+const GameBoard = styled.div`
   display: flex;
-  flex-direction: column;
-  text-align: center;
+  flex-wrap:wrap;
   align-items: center;
   justify-content: space-around;
-  height: 100%;
-`;
-
-const Memory = styled.div`
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  align-items: center;
-  justify-content: space-around;
-  height: 100%;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-const Img = styled.div`
-  height: 300px;
-  width: 400px;
-  background-color: grey;
+  width: 80%;
+  background-color: #eeeeff;
+  margin: auto;
 `;
