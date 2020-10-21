@@ -1,21 +1,26 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components';
+import LearningData from './LearningData';
 
 export default function LearningSite() {
-  return (
-    <Learning id="learning_site">
+    return (
+        <Learning id="learning_site">
+      
       <Img>image</Img>
       <Content>
         <h1>Learning</h1>
-        <div>
-          <h4>Choose difficulty</h4>
-          {/* <button>Easy</button>
-          <button>Hard</button> */}
-        </div>
-        <div>START</div>
+        <form action="/learning">
+            <label htmlFor="difficulty">Set difficulty </label>
+                <select id="difficulty" name="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="hard">Hard</option>
+                </select>
+        <button>Start</button>
+      </form>
+      
       </Content>
-    </Learning>
-  );
+        </Learning>
+    )
 }
 
 const Content = styled.div`
