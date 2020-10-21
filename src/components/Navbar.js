@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { animateScroll as scroll, Link } from "react-scroll";
+import { Link as LinkToRoute } from "react-router-dom";
 
 export default function Navbar() {
   const [dropdownStatus, setDropdownStatus] = useState("none");
@@ -16,9 +17,9 @@ export default function Navbar() {
   return (
     <div>
       <Nav>
-        <Link className="link" to="about" smooth={true} duration={1000}>
+        <LinkToRout className="link" to="/">
           <h1>Fun Study</h1>
-        </Link>
+        </LinkToRout>
         <FlexBox dropdownStatus={dropdownStatus}>
           <Img onClick={changeDropdown} src="./dropdown.png"></Img>
           <Link className="link" to="about" smooth={true} duration={1000}>
@@ -60,10 +61,10 @@ const Nav = styled.nav`
     text-decoration: none;
     display: inline-block;
     padding: 10px;
-    border-radius:10px;
+    border-radius: 10px;
     font-size: 20px;
     cursor: pointer;
-    &:hover{
+    &:hover {
       background-color: white;
       color: #313648;
     }
