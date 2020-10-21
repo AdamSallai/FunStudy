@@ -28,13 +28,12 @@ const Form = styled.form`
   text-align: center;
   align-items: center;
   justify-content: space-around;
-  height: 100%;
-  font-size: 20px;
-  button{
-    width: 50px;
-    height: 30px;
-    font-size: 16px;
-
+  height: 300px;
+  font-size: 30px;
+  button, option, select {
+    width: 80px;
+    height: 35px;
+    font-size: 20px;
   }
 `;
 
@@ -51,8 +50,12 @@ const Memory = styled.div`
 `;
 
 const IMG = styled.img`
-  height: 400px;
+  width: 600px;
   margin: 10px;
   border-radius:5px;
   border-color: grey;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;

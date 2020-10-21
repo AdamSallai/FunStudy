@@ -6,7 +6,6 @@ import StartMemoryGame from "./components/StartMemoryGame";
 import MemoryGame from "./components/MemoryGame";
 import LearningSite from "./components/LearningSite";
 import styled, { createGlobalStyle } from "styled-components";
-import Data from "./components/Data";
 import LearningData from "./components/LearningData";
 import { SelectedCardProvider } from "./components/SelectedCardContext";
 
@@ -58,13 +57,16 @@ const BodyStyle = styled.div`
   > div {
     padding: 30px;
     position: relative;
-    height: 500px;
+    min-height: 500px;
     width: 100%;
     > div {
       width: 70%;
       left: 50%;
       position: relative;
       transform: translate(-50%);
+      @media (max-width: 768px) {
+        width: 90%;
+      }
     }
   }
 `;

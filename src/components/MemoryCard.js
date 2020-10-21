@@ -60,10 +60,10 @@ const transforms = {
 const GameCard = styled.div`
   background-color: transparent;
   position: relative;
-  height: 240px;
-  width: 170px;
+  height: 280px;
+  width: 200px;
   box-sizing: border-box;
-  margin: 40px;
+  margin: 30px 60px;
   transition: transform 1s ease-in-out;
   transform-style: preserve-3d;
   transform: ${(props) => transforms[props.transform]};
@@ -72,8 +72,8 @@ const GameCard = styled.div`
 const Front = styled.div`
   position: absolute;
   backface-visibility: hidden;
-  height: 240px;
-  width: 170px;
+  height: 280px;
+  width: 200px;
   box-sizing: border-box;
   font-size: 20px;
   border-radius: 25px;
@@ -115,8 +115,8 @@ const Front = styled.div`
 const Back = styled.div`
   backface-visibility: hidden;
   position: absolute;
-  height: 240px;
-  width: 170px;
+  height: 280px;
+  width: 200px;
   box-sizing: border-box;
   font-size: 20px;
   border-radius: 25px;

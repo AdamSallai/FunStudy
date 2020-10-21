@@ -33,5 +33,20 @@ export default function About() {
 const AboutStyle = styled.div`
   background-color: #313648;
   color: white;
-  padding: 30px 0px;
+  padding-top: 82px;
+  padding-bottom: 40px;
+  h1 {
+    padding-bottom: 15px;
+    padding-top: 30px;
+    font-size: 36px;
+  }
+  p {
+    font-size: 24px;
+  }
+  h2 {
+    padding-bottom: 15px;
+    padding-top: 30px;
+    font-size: 32px;
+  }
+
 `
