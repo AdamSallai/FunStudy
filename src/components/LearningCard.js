@@ -13,17 +13,28 @@ export default function LearningCard({
   const [transform, setTransform] = useState("front");
   const [buttonText, setButtonText] = useState("Guess");
   const [disabled, setDisability] = useState(false);
+  const [guessed, setGuessed] = useState("unguessed");
 
   const increasePoints = () => {
-    let guess = document.getElementById("cpDev1").value;
-    if (card.word === guess) {
+    if (isTheWordGuessed()) {
       setPoints((points) => points + 1);
     }
+  };
+
+  const isTheWordGuessed = () => {
+    let guess = document.getElementById("cpDev1").value;
+    if (card.word === guess) {
+      return true;
+    }
+    return false;
   };
 
   const flipCard = () => {
     setTransform((prev) => (prev === "front" ? "back" : "front"));
     setDisability(true);
+    if (isTheWordGuessed()) {
+      setGuessed("guessed");
+    }
   };
 
   const addNewCard = () => {
@@ -35,7 +46,7 @@ export default function LearningCard({
     <div>
       <CardContainer>
         <Card transform={transform}>
-          <Back>
+          <Back className={guessed}>
             <p className="correct-word">{card.word}</p>
           </Back>
           <Front>
@@ -54,7 +65,7 @@ export default function LearningCard({
         <Points>
           <span>Your points: </span>
           <span className="point">{points}</span>
-          <p>{card.word}</p>
+          <p style={{ color: "white" }}>{card.word}</p>
         </Points>
 
         <Continue type="submit" onClick={addNewCard}>
@@ -113,6 +124,12 @@ const Card = styled.div`
     margin-right: auto;
     width: 200px;
   }
+  .guessed {
+    background: #2e7d32;
+  }
+  .unguessed {
+    background: #b71c1c;
+  }
 `;
 
 const Front = styled.div`
@@ -132,6 +149,13 @@ const Front = styled.div`
   color: white;
   z-index: 2;
   transform: rotateY(0deg);
+  p::first-letter {
+    text-transform: uppercase;
+  }
+  p,
+  img {
+    margin-top: 10px;
+  }
   .text-container {
     display: flex;
     align-items: center;
@@ -174,7 +198,13 @@ const Back = styled.div`
   cursor: pointer;
   transform: rotateY(180deg);
   .correct-word {
-    align-items: center;
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 
