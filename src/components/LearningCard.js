@@ -65,7 +65,7 @@ export default function LearningCard({
         <Points>
           <span>Your points: </span>
           <span className="point">{points}</span>
-          <p>{card.word}</p>
+          <p style={{ color: "white" }}>{card.word}</p>
         </Points>
 
         <Continue type="submit" onClick={addNewCard}>
