@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import LearningCard from "./LearningCard";
 
 export default function LearningData() {
@@ -11,21 +10,18 @@ export default function LearningData() {
   const [isLoading, setIsLoading] = useState(true);
   const [guess, setGuess] = useState();
   const [points, setPoints] = useState(0);
-  let word;
 
   useEffect(() => {
-    word = randomWords(1);
+    let word = randomWords(1);
     setIsLoading(true);
     setErr(false);
     client
       .define(word)
       .then((result) => {
-        console.log(result);
         setCard(result);
         setIsLoading(false);
       })
       .catch((e) => {
-        console.log("eh");
         setErr(true);
       });
   }, [err, guess]);

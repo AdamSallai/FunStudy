@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { useEffect } from "react";
 import styled from "styled-components";
 
 export default function LearningCard({
@@ -11,7 +10,7 @@ export default function LearningCard({
   setPoints,
 }) {
   const [transform, setTransform] = useState("front");
-  const [buttonText, setButtonText] = useState("Guess");
+  const [buttonText] = useState("Guess");
   const [disabled, setDisability] = useState(false);
   const [guessed, setGuessed] = useState("unguessed");
 
@@ -100,7 +99,6 @@ const transforms = {
   back: "rotateY(180deg)",
 };
 
-
 const CardContainer = styled.div`
   position: fixed;
   left: 50%;
@@ -109,21 +107,21 @@ const CardContainer = styled.div`
 `;
 
 const Card = styled.div`
-  padding: 5px;
+  padding: 0;
   text-align: center;
   background-color: transparent;
-  width: 280px;
-  height: 400px;
+  width: 400px;
+  height: 560px;
   box-sizing: border-box;
   transition: transform 1s ease-in-out;
   transform-style: preserve-3d;
   transform: ${(props) => transforms[props.transform]};
   .img {
-    border-radius: 8px;
+    border-radius: 12px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 200px;
+    width: 250px;
   }
   .guessed {
     background: #2e7d32;
@@ -134,16 +132,16 @@ const Card = styled.div`
 `;
 
 const Front = styled.div`
+  padding: 0;
   position: absolute;
   backface-visibility: hidden;
-  width: 280px;
-  height: 400px;
+  width: 400px;
+  height: 560px;
   box-sizing: border-box;
   border-radius: 25px;
   border-color: #f57c00;
   border-width: 5px;
   border-style: solid;
-  padding: 0;
   cursor: pointer;
   font-size: 16px;
   background-color: #181931;
@@ -170,6 +168,18 @@ const Front = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     height: 80%;
+    h3 {
+      padding-top: 10px;
+      font-size: 36px;
+    }
+    h5 {
+      padding-top: 5px;
+      font-size: 24px;
+    }
+    p {
+      padding-top: 16px;
+      font-size: 22px;
+    }
     ::-webkit-scrollbar {
       width: 15px;
     }
@@ -186,8 +196,8 @@ const Back = styled.div`
   backface-visibility: hidden;
   color: white;
   position: absolute;
-  width: 280px;
-  height: 400px;
+  width: 400px;
+  height: 560px;
   box-sizing: border-box;
   font-size: 20px;
   border-radius: 25px;
@@ -211,12 +221,17 @@ const Back = styled.div`
 
 const InputContainer = styled.div`
   position: fixed;
-  bottom: 15%;
+  bottom: 10%;
   left: 50%;
   transform: translate(-50%, 0);
   font-size: 16pt;
+  width: 300px;
   input {
+    padding: 0px 10px;
+    height: 40px;
     width: 100%;
+    font-size: 24px;
+    box-sizing: border-box;
   }
   .true {
     background-color: grey;
@@ -226,23 +241,26 @@ const InputContainer = styled.div`
 
 const Button = styled.button`
   width: 100%;
-  height: 30px;
+  height: 40px;
   color: white;
   background-color: #e65100;
   border-color: #f57c00;
-  margin: 2px;
+  font-size: 24px;
 `;
 
 const Continue = styled.button`
   color: white;
   background-color: #e65100;
   border-color: #f57c00;
+  font-size: 24px;
+  width: 150px;
+  height: 30px;
 `;
 const PointsContainer = styled.div`
   position: fixed;
   top: 12%;
   left: 4%;
-  font-size: 14pt;
+  font-size: 24px;
   margin: 5px;
 `;
 

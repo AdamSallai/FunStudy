@@ -15,7 +15,7 @@ export default function Navbar() {
   };
 
   return (
-    <div>
+    <>
       <Nav>
         <LinkToRoute className="link" to="/">
           <h1>
@@ -48,7 +48,7 @@ export default function Navbar() {
         </FlexBox>
       </Nav>
       <ArrowToTop onClick={() => scroll.scrollToTop()}>↑</ArrowToTop>
-    </div>
+    </>
   );
 }
 
