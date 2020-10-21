@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import GetMemoryCard from "./GetMemoryCard";
+import { SelectedCardContext } from "./SelectedCardContext";
 
 export default function MemoryGame() {
+  //const [selectedCards, setSelectedCards] = useContext(SelectedCardContext);
+  //const [foundCards, setFoundCards] = useState({ card1: "", card2: "" });
   const content = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 3; i++) {
     const memo = GetMemoryCard();
     content.push(memo[0]);
     content.push(memo[1]);
@@ -23,7 +26,7 @@ const GameBoard = styled.div`
   top: 82px;
   position: relative;
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   width: 80%;

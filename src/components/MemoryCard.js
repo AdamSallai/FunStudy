@@ -1,17 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
+import { SelectedCardContext } from "./SelectedCardContext";
 
 export default function MemoryCard({ content, word }) {
+  const [selectedCards, setSelectedCards] = useContext(SelectedCardContext);
   const [cont] = useState(content);
-  // const [identifier] = useState(word)
+  const [identifier] = useState(word);
   const [transform, setTransform] = useState("back");
+  const [disable, setDisable] = useState("notDisabled");
 
   const flipCard = () => {
-    setTransform(prev => prev === "front" ? "back" : "front")
-  }
+    setTransform((prev) => (prev === "front" ? "back" : "front"));
+  };
+
+  const addToSelectedCard = () => {
+    if (selectedCards.card1 === "") {
+      setSelectedCards((prev) => {
+        return { card1: [identifier, flipCard, disableCard], card2: "" };
+      });
+    } else {
+      setSelectedCards((prev) => {
+        return {
+          card1: selectedCards.card1,
+          card2: [identifier, flipCard, disableCard],
+        };
+      });
+    }
+    disableCard();
+  };
+
+  const disableCard = () => {
+    setDisable((prev) => (prev === "disabled" ? "notDisabled" : "disabled"));
+  };
 
   return (
-    <GameCard onClick={flipCard} transform={transform}>
+    <GameCard
+      onClick={() => {
+        if (disable === "notDisabled") {
+          flipCard();
+          addToSelectedCard();
+        }
+      }}
+      transform={transform}
+      disable={disable}
+    >
       <Back></Back>
       <Front>
         <div className="text-container">{cont}</div>
@@ -22,8 +54,8 @@ export default function MemoryCard({ content, word }) {
 
 const transforms = {
   front: "none",
-  back: "rotateY(180deg)"
-}
+  back: "rotateY(180deg)",
+};
 
 const GameCard = styled.div`
   background-color: transparent;
@@ -34,12 +66,12 @@ const GameCard = styled.div`
   margin: 40px;
   transition: transform 1s ease-in-out;
   transform-style: preserve-3d;
-  transform: ${props => transforms[props.transform]};
+  transform: ${(props) => transforms[props.transform]};
 `;
 
 const Front = styled.div`
   position: absolute;
-	backface-visibility: hidden;
+  backface-visibility: hidden;
   height: 240px;
   width: 170px;
   box-sizing: border-box;
@@ -53,8 +85,8 @@ const Front = styled.div`
   font-size: 24px;
   background-color: #181931;
   color: white;
-	z-index: 2;
-	transform: rotateY(0deg);
+  z-index: 2;
+  transform: rotateY(0deg);
   .text-container {
     display: flex;
     align-items: center;
@@ -81,7 +113,7 @@ const Front = styled.div`
 `;
 
 const Back = styled.div`
-backface-visibility: hidden;
+  backface-visibility: hidden;
   position: absolute;
   height: 240px;
   width: 170px;
