@@ -26,7 +26,7 @@ function App() {
               <LearningSite />
             </White>
             <Grey>
-              <MemoryGame />
+              <StartMemoryGame />
             </Grey>
           </BodyStyle>
         )}

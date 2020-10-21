@@ -17,9 +17,9 @@ export default function Navbar() {
   return (
     <div>
       <Nav>
-        <LinkToRout className="link" to="/">
+        <LinkToRoute className="link" to="/">
           <h1>Fun Study</h1>
-        </LinkToRout>
+        </LinkToRoute>
         <FlexBox dropdownStatus={dropdownStatus}>
           <Img onClick={changeDropdown} src="./dropdown.png"></Img>
           <Link className="link" to="about" smooth={true} duration={1000}>

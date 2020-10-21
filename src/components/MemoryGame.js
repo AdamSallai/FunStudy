@@ -20,6 +20,8 @@ function shuffle(array) {
 }
 
 const GameBoard = styled.div`
+  top: 82px;
+  position: relative;
   display: flex;
   flex-wrap:wrap;
   align-items: center;
