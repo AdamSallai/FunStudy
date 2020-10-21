@@ -18,7 +18,10 @@ export default function Navbar() {
     <div>
       <Nav>
         <LinkToRoute className="link" to="/">
-          <h1>Fun Study</h1>
+          <h1>
+            <img src="./whiteee.png"></img>
+            Fun Study
+          </h1>
         </LinkToRoute>
         <FlexBox dropdownStatus={dropdownStatus}>
           <Img onClick={changeDropdown} src="./dropdown.png"></Img>
@@ -50,7 +53,7 @@ export default function Navbar() {
 }
 
 const Nav = styled.nav`
-z-index: 2;
+  z-index: 2;
   position: fixed;
   width: 100%;
   top: 0;
@@ -67,6 +70,10 @@ z-index: 2;
     border-radius: 10px;
     font-size: 20px;
     cursor: pointer;
+    img {
+      height: 40px;
+      margin-right: 12px;
+    }
     &:hover {
       background-color: white;
       color: #313648;
@@ -81,7 +88,7 @@ z-index: 2;
 `;
 
 const FlexBox = styled.div`
-  position:relative;
+  position: relative;
   display: flex;
   @media (max-width: 768px) {
     flex-direction: column;
