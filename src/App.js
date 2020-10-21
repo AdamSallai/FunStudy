@@ -6,6 +6,8 @@ import StartMemoryGame from "./components/StartMemoryGame";
 import MemoryGame from "./components/MemoryGame";
 import LearningSite from "./components/LearningSite";
 import styled, { createGlobalStyle } from "styled-components";
+import Data from "./components/Data";
+import LearningData from "./components/LearningData";
 
 function App() {
   return (
@@ -16,17 +18,22 @@ function App() {
         exact
         path="/"
         render={(props) => (
-          <React.Fragment>
-            <BodyStyle>
+          <BodyStyle>
+            <Grey>
               <About />
+            </Grey>
+            <White>
               <LearningSite />
-              <StartMemoryGame />
-            </BodyStyle>
-          </React.Fragment>
+            </White>
+            <Grey>
+              <MemoryGame />
+            </Grey>
+          </BodyStyle>
         )}
       />
 
       <Route path="/memorygame" exact component={MemoryGame} />
+      <Route path="/learning" exact component={LearningData} />
     </Router>
   );
 }
@@ -40,12 +47,31 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const BodyStyle = styled.div`
-  padding: 20px 0;
-  width: 70%;
+  width: 100%;
+  top: 82px;
   position: relative;
-  transform: translate(-50%);
-  left: 50%;
   box-sizing: border-box;
+  color: #313648;
+  > div {
+    padding: 30px;
+    position: relative;
+    height: 500px;
+    width: 100%;
+    > div {
+      width: 70%;
+      left: 50%;
+      position: relative;
+      transform: translate(-50%);
+    }
+  }
+`;
+
+const Grey = styled.div`
+  background-color: #313648;
+  color: white;
+`;
+const White = styled.div`
+  background-color: white;
   color: #313648;
 `;
 
