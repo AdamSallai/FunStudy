@@ -50,7 +50,7 @@ export default function Navbar() {
 }
 
 const Nav = styled.nav`
-z-index: 2;
+  z-index: 2;
   position: fixed;
   width: 100%;
   top: 0;
@@ -115,9 +115,10 @@ const Img = styled.img`
 `;
 
 const ArrowToTop = styled.button`
+  z-index:1;
   position: fixed;
   bottom: 8%;
-  right: 8%;
+  right: 5%;
   width: 40px;
   height: 50px;
   border-radius: 50px;

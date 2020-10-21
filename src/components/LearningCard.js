@@ -100,6 +100,7 @@ const transforms = {
   back: "rotateY(180deg)",
 };
 
+
 const CardContainer = styled.div`
   position: fixed;
   left: 50%;

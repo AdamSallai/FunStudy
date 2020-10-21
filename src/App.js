@@ -15,27 +15,27 @@ function App() {
     <Router>
       <GlobalStyle />
       <Navbar />
-      <Route
-        exact
-        path="/"
-        render={(props) => (
-          <BodyStyle>
-            <Grey>
-              <About />
-            </Grey>
-            <White>
-              <LearningSite />
-            </White>
-            <Grey>
-              <StartMemoryGame />
-            </Grey>
-          </BodyStyle>
-        )}
-      />
-      <SelectedCardProvider>
-        <Route path="/memorygame" exact component={MemoryGame} />
-      </SelectedCardProvider>
-      <Route path="/learning" exact component={LearningData} />
+        <Route
+          exact
+          path="/"
+          render={(props) => (
+            <BodyStyle>
+              <Grey>
+                <About />
+              </Grey>
+              <White>
+                <LearningSite />
+              </White>
+              <Grey>
+                <StartMemoryGame />
+              </Grey>
+            </BodyStyle>
+          )}
+        />
+        <SelectedCardProvider>
+          <Route path="/memorygame" exact component={MemoryGame} />
+        </SelectedCardProvider>
+        <Route path="/learning" exact component={LearningData} />
     </Router>
   );
 }
@@ -47,6 +47,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 `;
+
 
 const BodyStyle = styled.div`
   width: 100%;

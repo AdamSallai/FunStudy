@@ -16,7 +16,7 @@ export default function StartMemoryGame() {
         </div>
         <button>Start</button>
       </Form>
-      <Img>image</Img>
+      <IMG src="/memory.JPG" alt=""/>
     </Memory>
   );
 }
@@ -29,6 +29,13 @@ const Form = styled.form`
   align-items: center;
   justify-content: space-around;
   height: 100%;
+  font-size: 20px;
+  button{
+    width: 50px;
+    height: 30px;
+    font-size: 16px;
+
+  }
 `;
 
 const Memory = styled.div`
@@ -36,15 +43,16 @@ const Memory = styled.div`
   flex-direction: row;
   text-align: center;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100%;
   @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
-const Img = styled.div`
-  height: 300px;
-  width: 400px;
-  background-color: grey;
+const IMG = styled.img`
+  height: 400px;
+  margin: 10px;
+  border-radius:5px;
+  border-color: grey;
 `;
