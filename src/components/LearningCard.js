@@ -128,7 +128,7 @@ const Card = styled.div`
     background: #2e7d32;
   }
   .unguessed {
-    background: #c62828;
+    background: #b71c1c;
   }
 `;
 
@@ -149,6 +149,13 @@ const Front = styled.div`
   color: white;
   z-index: 2;
   transform: rotateY(0deg);
+  p::first-letter {
+    text-transform: uppercase;
+  }
+  p,
+  img {
+    margin-top: 10px;
+  }
   .text-container {
     display: flex;
     align-items: center;
@@ -191,7 +198,13 @@ const Back = styled.div`
   cursor: pointer;
   transform: rotateY(180deg);
   .correct-word {
-    align-items: center;
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 
