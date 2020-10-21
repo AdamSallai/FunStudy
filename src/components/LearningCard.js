@@ -31,16 +31,24 @@ export default function LearningCard({
         <p>{card.definitions[0].definition}</p>
         <br />
       </Card>
+      <Points>
+        <span>Your points: </span>
+        <span className="point">{points}</span>
+        <p>{card.word}</p>
+      </Points>
 
       <InputContainer>
-        <p>{card.word}</p>
-        <p>Your points: {points}</p>
-        <br />
-        <label htmlFor="guess">Your guess: </label>
-        <input type="text" name="guess" id="cpDev1"></input>
-        <button type="submit" onClick={addNewCard}>
+        <label htmlFor="guess"></label>
+        <input
+          type="text"
+          name="guess"
+          id="cpDev1"
+          placeholder="Your guess"
+        ></input>
+
+        <Button type="submit" onClick={addNewCard}>
           Guess
-        </button>
+        </Button>
       </InputContainer>
     </div>
   );
@@ -65,8 +73,30 @@ const Card = styled.div`
 
 const InputContainer = styled.div`
   position: fixed;
-  bottom: 100px;
+  bottom: 120px;
   left: 50%;
-  /* bring your own prefixes */
   transform: translate(-50%, 0);
+  margin: 5px;
+  font-size: 16pt;
+  .input {
+    width: 100%;
+  }
+`;
+
+const Button = styled.button`
+  width: 100%;
+  color: white;
+  background-color: #313648;
+`;
+
+const Points = styled.div`
+  position: fixed;
+  top: 12%;
+  left: 4%;
+  font-size: 14pt;
+  margin: 5px;
+  .point {
+    color: red;
+    font-weight: bold;
+  }
 `;

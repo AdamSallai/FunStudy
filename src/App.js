@@ -6,7 +6,7 @@ import MemoryGame from "./components/MemoryGame";
 import LearningSite from "./components/LearningSite";
 import styled, { createGlobalStyle } from "styled-components";
 import Data from "./components/Data";
-import LearningData from "./components/LearningData"
+import LearningData from "./components/LearningData";
 
 function App() {
   return (

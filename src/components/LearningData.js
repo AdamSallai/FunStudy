@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import LearningCard from './LearningCard';
+import LearningCard from "./LearningCard";
 
 export default function LearningData() {
   const randomWords = require("random-words");
@@ -17,8 +17,9 @@ export default function LearningData() {
     word = randomWords(1);
     setIsLoading(true);
     setErr(false);
-    client.define(word)
-      .then(result => {
+    client
+      .define(word)
+      .then((result) => {
         console.log(result);
         setCard(result);
         setIsLoading(false);
@@ -30,18 +31,22 @@ export default function LearningData() {
   }, [err, guess]);
 
   if (isLoading) {
-    return (
-      <div>Loading...</div>
-    );
+    return <div>Loading...</div>;
   } else {
     let image = null;
-    card.definitions.forEach(item => {
+    card.definitions.forEach((item) => {
       if (item.image_url !== null) {
         image = item.image_url;
       }
-    })
+    });
     return (
-      <LearningCard callback={setGuess} card={card} image={image} points={points} setPoints={setPoints}/>
+      <LearningCard
+        callback={setGuess}
+        card={card}
+        image={image}
+        points={points}
+        setPoints={setPoints}
+      />
     );
   }
 }
