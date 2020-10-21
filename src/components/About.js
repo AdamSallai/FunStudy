@@ -29,5 +29,8 @@ export default function About() {
 }
 
 const AboutStyle = styled.div`
-  margin: 30px 0px;
+  background-color: #313648;
+  color: white;
+  padding: 30px 0px;
+  
 `
