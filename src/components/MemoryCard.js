@@ -7,7 +7,7 @@ export default function MemoryCard({ content, word }) {
   const [cont] = useState(content);
   const [identifier] = useState(word);
   const [transform, setTransform] = useState("back");
-
+  const [disable, setDisable] = useState("all");
 
   const flipCard = () => {
     setTransform((prev) => (prev === "front" ? "back" : "front"));
@@ -16,26 +16,31 @@ export default function MemoryCard({ content, word }) {
   const addToSelectedCard = () => {
     if (selectedCards.card1 === "") {
       setSelectedCards((prev) => {
-        return { card1: [word,flipCard], card2: "" };
+        return { card1: [word, flipCard, disableCard], card2: "" };
       });
     } else {
       setSelectedCards((prev) => {
-        return { card1: selectedCards.card1, card2: [word,flipCard] };
+        return {
+          card1: selectedCards.card1,
+          card2: [word, flipCard, disableCard],
+        };
       });
     }
+    disableCard();
   };
 
- 
+  const disableCard = () => {
+    setDisable((prev) => (prev === "all" ? "none" : "all"));
+  };
 
   return (
     <GameCard
       onClick={() => {
         flipCard();
         addToSelectedCard();
-        //checkSelectedCards();
-        console.log(selectedCards);
       }}
       transform={transform}
+      disable={disable}
     >
       <Back></Back>
       <Front>
@@ -49,6 +54,10 @@ const transforms = {
   front: "none",
   back: "rotateY(180deg)",
 };
+const disableStates = {
+  all: "all",
+  none: "none",
+};
 
 const GameCard = styled.div`
   background-color: transparent;
@@ -60,6 +69,7 @@ const GameCard = styled.div`
   transition: transform 1s ease-in-out;
   transform-style: preserve-3d;
   transform: ${(props) => transforms[props.transform]};
+  pointer-events: ${(props) => disableStates[props.disable]};
 `;
 
 const Front = styled.div`
