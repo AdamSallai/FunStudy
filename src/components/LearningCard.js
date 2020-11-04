@@ -5,7 +5,6 @@ import styled from "styled-components";
 export default function LearningCard({
   callback,
   card,
-  image,
   points,
   setPoints,
 }) {
@@ -52,8 +51,8 @@ export default function LearningCard({
             <div className="text-container">
               <h3>Learning Card</h3>
               <h5>by Fun Study</h5>
-              <img className="img" src={image} alt="" />
-              <p>{card.definitions[0].definition}</p>
+              <img className="img" src={card.image_url} alt="" />
+              <p>{card.definition}</p>
               <br />
             </div>
           </Front>

@@ -14,8 +14,8 @@ export default function GetMemoryCard() {
     // }
     // getData();
 
+    setIsLoading(true);
     getCardData(setCard, setIsLoading);
-    
   }, []);
 
   if (!isLoading) {
