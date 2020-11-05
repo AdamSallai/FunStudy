@@ -5,11 +5,21 @@ export const SelectedCardContext = createContext();
 export const SelectedCardProvider = (props) => {
   const [selectedCards, setSelectedCards] = useState({ card1: "", card2: "" });
   const [foundCard, setFoundCard] = useState(0);
-
+  const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
+  const [totalCard, setTotalCard] = useState(4);
 
   useEffect(() => {
     checkSelectedCards();
+    checkFinihsed();
   }, [selectedCards]);
+  
+  const checkFinihsed = () => {
+    if (foundCard === totalCard) {
+      setFinished(true);
+      console.log("finished is set");
+    }
+  };
 
   const checkSelectedCards = () => {
     if (selectedCards.card2 !== "") {
@@ -19,8 +29,10 @@ export const SelectedCardProvider = (props) => {
         setTimeout(() => {
           turnBackCards();
         }, 1000);
+        setScore(score - 1);
       } else {
         setFoundCard(foundCard + 1);
+        setScore(score + 5);
       }
       setSelectedCards({ card1: "", card2: "" });
     }

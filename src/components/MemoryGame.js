@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import GetMemoryCard from "./GetMemoryCard";
 import Timer from "./Stopwatch";
+import MemoryGameScore from "./MemoryGameScore";
 
 export default function MemoryGame(props) {
   const content = [];
@@ -17,7 +18,10 @@ export default function MemoryGame(props) {
 
   return (
     <div>
-      <Timer key={amount} amount={amount}/>
+      <GameStat>
+        <Timer key={amount} amount={amount} />
+        <MemoryGameScore></MemoryGameScore>
+      </GameStat>
       <GameBoard>{content}</GameBoard>;
     </div>
   );
@@ -36,5 +40,14 @@ const GameBoard = styled.div`
   justify-content: space-around;
   width: 80%;
   background-color: #eeeeff;
+  margin: auto;
+`;
+const GameStat = styled.div`
+  padding-top: 90px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 40%;
   margin: auto;
 `;
