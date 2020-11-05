@@ -2,16 +2,12 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function LearningCard({
-  callback,
-  card,
-  points,
-  setPoints,
-}) {
+export default function LearningCard({ callback, card, points, setPoints }) {
   const [transform, setTransform] = useState("front");
   const [buttonText] = useState("Guess");
   const [disabled, setDisability] = useState(false);
   const [guessed, setGuessed] = useState("unguessed");
+  const [unknown, setUnknown] = useState(false);
 
   const increasePoints = () => {
     if (isTheWordGuessed()) {
@@ -19,12 +15,20 @@ export default function LearningCard({
     }
   };
 
+  const isUnknownCardToSession = () => {
+    sessionStorage.setItem("unknownCardData", card);
+    return true;
+  };
+
   const isTheWordGuessed = () => {
     let guess = document.getElementById("cpDev1").value;
     if (card.word === guess) {
       return true;
+    } else {
+      isUnknownCardToSession();
+      setUnknown(true);
+      return false;
     }
-    return false;
   };
 
   const flipCard = () => {
