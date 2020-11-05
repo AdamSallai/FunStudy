@@ -15,11 +15,6 @@ export default function LearningCard({ callback, card, points, setPoints }) {
     }
   };
 
-  const isUnknownCardToSession = () => {
-    sessionStorage.setItem("unknownCardData", card);
-    return true;
-  };
-
   const isTheWordGuessed = () => {
     let guess = document.getElementById("cpDev1").value;
     if (card.word === guess) {
