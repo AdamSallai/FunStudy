@@ -1,13 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import About from "./components/About";
-import StartMemoryGame from "./components/StartMemoryGame";
-import MemoryGame from "./components/MemoryGame";
-import LearningSite from "./components/LearningSite";
+import Navbar from "./components/mainPage/Navbar";
+import About from "./components/mainPage/About";
+import StartMemoryGame from "./components/memoryGame/StartMemoryGame";
+import MemoryGame from "./components/memoryGame/MemoryGame";
+import LearningSite from "./components/learningSite/LearningSite";
 import styled, { createGlobalStyle } from "styled-components";
-import LearningData from "./components/LearningData";
-import { SelectedCardProvider } from "./components/SelectedCardContext";
+import LearningData from "./components/learningSite/LearningData";
+import { SelectedCardProvider } from "./components/memoryGame/SelectedCardContext";
+import Registration from './components/register/Registration';
+import RegistrationPostRequest from './components/register/RegistrationPostRequest';
 
 function App() {
   return (
@@ -28,6 +30,9 @@ function App() {
               <Grey>
                 <StartMemoryGame />
               </Grey>
+              <White>
+                <Registration />
+              </White>
             </BodyStyle>
           )}
         />

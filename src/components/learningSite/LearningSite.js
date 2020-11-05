@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import LearningData from "./LearningData";
 
 export default function LearningSite() {
   return (

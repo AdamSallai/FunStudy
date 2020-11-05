@@ -42,7 +42,7 @@ export default function Navbar() {
           <Link className="link" to="about" smooth={true} duration={1000}>
             Login
           </Link>
-          <Link className="link" to="about" smooth={true} duration={1000}>
+          <Link className="link" to="registration" smooth={true} duration={1000}>
             Registration
           </Link>
         </FlexBox>
