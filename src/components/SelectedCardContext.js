@@ -4,6 +4,7 @@ export const SelectedCardContext = createContext();
 
 export const SelectedCardProvider = (props) => {
   const [selectedCards, setSelectedCards] = useState({ card1: "", card2: "" });
+  const [foundCard, setFoundCard] = useState(0);
 
   useEffect(() => {
     checkSelectedCards();
@@ -11,13 +12,14 @@ export const SelectedCardProvider = (props) => {
 
   const checkSelectedCards = () => {
     if (selectedCards.card2 !== "") {
-      if (selectedCards.card1[0] === selectedCards.card2[0]) {
-      } else {
+      if (selectedCards.card1[0] !== selectedCards.card2[0]) {
         selectedCards.card1[2]();
         selectedCards.card2[2]();
         setTimeout(() => {
           turnBackCards();
         }, 1000);
+      } else {
+        setFoundCard(foundCard + 1);
       }
       setSelectedCards({ card1: "", card2: "" });
     }

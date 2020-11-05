@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import GetMemoryCard from "./GetMemoryCard";
+import Timer from "./Stopwatch";
 
 export default function MemoryGame(props) {
   const content = [];
-  const difficulty = props.location.search.split('=')[1];
-  const amount = difficulty === 'easy' ? 4 : 8;
+  const difficulty = props.location.search.split("=")[1];
+  const amount = difficulty === "easy" ? 4 : 8;
   for (let i = 0; i < amount; i++) {
     const memo = GetMemoryCard();
     content.push(memo[0]);
@@ -14,7 +15,12 @@ export default function MemoryGame(props) {
 
   shuffle(content);
 
-  return <GameBoard>{content}</GameBoard>;
+  return (
+    <div>
+      <Timer key={amount} amount={amount}/>
+      <GameBoard>{content}</GameBoard>;
+    </div>
+  );
 }
 
 function shuffle(array) {
@@ -22,7 +28,6 @@ function shuffle(array) {
 }
 
 const GameBoard = styled.div`
-  top: 82px;
   padding-top: 82px;
   position: relative;
   display: flex;
