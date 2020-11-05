@@ -6,6 +6,7 @@ export const SelectedCardProvider = (props) => {
   const [selectedCards, setSelectedCards] = useState({ card1: "", card2: "" });
   const [foundCard, setFoundCard] = useState(0);
 
+
   useEffect(() => {
     checkSelectedCards();
   }, [selectedCards]);
