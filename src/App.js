@@ -8,8 +8,8 @@ import LearningSite from "./components/learningSite/LearningSite";
 import styled, { createGlobalStyle } from "styled-components";
 import LearningData from "./components/learningSite/LearningData";
 import { SelectedCardProvider } from "./components/memoryGame/SelectedCardContext";
-import Registration from './components/register/Registration';
-import RegistrationPostRequest from './components/register/RegistrationPostRequest';
+import Registration from './components/registration/Registration';
+import Login from './components/login/Login';
 
 function App() {
   return (
@@ -33,6 +33,9 @@ function App() {
               <White>
                 <Registration />
               </White>
+              <Grey>
+                <Login />
+              </Grey>
             </BodyStyle>
           )}
         />
