@@ -44,6 +44,12 @@ export default function LearningCard({ callback, card, points, setPoints }) {
     callback(Math.random());
   };
 
+  const isUnknownCardToSession = () => {
+    sessionStorage.setItem("unknownCardData", card.word);
+    return true;
+  };
+
+
   return (
     <div>
       <CardContainer>

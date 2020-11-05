@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+It is a teamwork project, where we created a React application where the users can improve their English skills in a fun way. The users can play a memory card game and a basic learning game with cards. In the memory game there are 4 or 8 pairs of cards in the window, each word card has a pair with a definition. The player's goal is to find all the matches. In learning site route you get a card with definition and sometimes with a picture and you can guess a word. You can collect points, and in the future you will be able to compete with your friends.
+
 ## Available Scripts
 
 In the project directory, you can run:
