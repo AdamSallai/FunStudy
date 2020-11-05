@@ -12,6 +12,7 @@ export default function LearningCard({
   const [buttonText] = useState("Guess");
   const [disabled, setDisability] = useState(false);
   const [guessed, setGuessed] = useState("unguessed");
+  const [unknown, setUnknown] = useState(false);
 
   const increasePoints = () => {
     if (isTheWordGuessed()) {
@@ -23,8 +24,11 @@ export default function LearningCard({
     let guess = document.getElementById("cpDev1").value;
     if (card.word === guess) {
       return true;
+    } else {
+      isUnknownCardToSession();
+      setUnknown(true);
+      return false;
     }
-    return false;
   };
 
   const flipCard = () => {
@@ -39,6 +43,12 @@ export default function LearningCard({
     increasePoints();
     callback(Math.random());
   };
+
+  const isUnknownCardToSession = () => {
+    sessionStorage.setItem("unknownCardData", card.word);
+    return true;
+  };
+
 
   return (
     <div>
