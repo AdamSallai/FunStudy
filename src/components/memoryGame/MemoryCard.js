@@ -8,6 +8,7 @@ export default function MemoryCard({ content, word }) {
   const [identifier] = useState(word);
   const [transform, setTransform] = useState("back");
   const [disable, setDisable] = useState("notDisabled");
+  const [found, setFound] = useState(false);
 
   const flipCard = () => {
     setTransform((prev) => (prev === "front" ? "back" : "front"));
@@ -16,18 +17,23 @@ export default function MemoryCard({ content, word }) {
   const addToSelectedCard = () => {
     if (selectedCards.card1 === "") {
       setSelectedCards((prev) => {
-        return { card1: [identifier, flipCard, disableCard], card2: "" };
+        return { card1: [identifier, flipCard, disableCard, cardFound], card2: "" };
       });
     } else {
       setSelectedCards((prev) => {
         return {
           card1: selectedCards.card1,
-          card2: [identifier, flipCard, disableCard],
+          card2: [identifier, flipCard, disableCard, cardFound],
         };
       });
     }
     disableCard();
   };
+
+  const cardFound = () => {
+    console.log("found");
+    setFound(true)
+  }
 
   const disableCard = () => {
     setDisable((prev) => (prev === "disabled" ? "notDisabled" : "disabled"));
@@ -45,7 +51,7 @@ export default function MemoryCard({ content, word }) {
       disable={disable}
     >
       <Back></Back>
-      <Front>
+      <Front found={found}>
         <div className="text-container">{cont}</div>
       </Front>
     </GameCard>
@@ -83,7 +89,7 @@ const Front = styled.div`
   padding: 0;
   cursor: pointer;
   font-size: 24px;
-  background-color: #181931;
+  background-color: ${(props) => props.found ? "#183119" :"#181931"};
   color: white;
   z-index: 2;
   transform: rotateY(0deg);
@@ -92,7 +98,7 @@ const Front = styled.div`
     align-items: center;
     flex-direction: column;
     padding: 10px;
-    background-color: #323348;
+    background-color: ${(props) => props.found ? "#285029" :"#323348"};
     overflow: auto;
     text-align: center;
     position: relative;
@@ -104,10 +110,10 @@ const Front = styled.div`
       width: 15px;
     }
     ::-webkit-scrollbar-track {
-      background: #323348;
+      background: ${(props) => props.found ? "#285029" :"#323348"};
     }
     ::-webkit-scrollbar-thumb {
-      background: #181931;
+      background: ${(props) => props.found ? "#183119" :"#181931"};
     }
   }
 `;
