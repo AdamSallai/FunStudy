@@ -34,6 +34,8 @@ export const SelectedCardProvider = (props) => {
       } else {
         setFoundCard(foundCard + 1);
         setScore(score + 5);
+        selectedCards.card1[3]();
+        selectedCards.card2[3]();
       }
       setSelectedCards({ card1: "", card2: "" });
     }
