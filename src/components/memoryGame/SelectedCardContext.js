@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from "react";
 
 export const SelectedCardContext = createContext();
+export const FoundCardContext = createContext();
 
 export const SelectedCardProvider = (props) => {
   const [selectedCards, setSelectedCards] = useState({ card1: "", card2: "" });
@@ -14,7 +15,11 @@ export const SelectedCardProvider = (props) => {
     checkFinihsed();
     console.log(score);
   }, [selectedCards]);
-  
+
+  // useEffect(() => {
+  //   console.log("Context:"+foundCard);
+  // }, [foundCard])
+
   const checkFinihsed = () => {
     if (foundCard === totalCard) {
       setFinished(true);
@@ -32,7 +37,7 @@ export const SelectedCardProvider = (props) => {
         }, 1000);
         setScore(score - 1);
       } else {
-        setFoundCard(foundCard + 1);
+        setFoundCard((prev) => prev + 1);
         setScore(score + 5);
         selectedCards.card1[3]();
         selectedCards.card2[3]();
@@ -47,7 +52,9 @@ export const SelectedCardProvider = (props) => {
   };
   return (
     <SelectedCardContext.Provider value={[selectedCards, setSelectedCards]}>
-      {props.children}
+      <FoundCardContext.Provider value={[foundCard, setFoundCard]}>
+        {props.children}
+      </FoundCardContext.Provider>
     </SelectedCardContext.Provider>
   );
 };
