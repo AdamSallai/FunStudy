@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
-import { FoundCardContext } from "./SelectedCardContext";
+import { FoundCardContext, SelectedCardContext } from "./SelectedCardContext";
 
 export default function Timer({ amount }) {
-  const [timerRunning, setTimerRunning] = useState(true);
+  const [timerRunning, setTimerRunning] = useState(false);
+  const [selectedCards, setSelectedCards] = useContext(SelectedCardContext);
   const [timer, setTimer] = useState(0);
   const [stopWatch, setStopWatch] = useState(null);
   const [foundCard] = useContext(FoundCardContext);
@@ -15,6 +16,12 @@ export default function Timer({ amount }) {
       stopTimer();
     }
   }, [timerRunning]);
+
+  useEffect(()=> {
+    if(selectedCards.card1 !== "") {
+      setTimerRunning(true)
+    }
+  }, [selectedCards])
 
   useEffect(() => {
     console.log("Amount "+amount);
