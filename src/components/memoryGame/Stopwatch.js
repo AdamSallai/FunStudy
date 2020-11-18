@@ -24,8 +24,6 @@ export default function Timer({ amount }) {
   }, [selectedCards])
 
   useEffect(() => {
-    console.log("Amount "+amount);
-    console.log(foundCard);
     if(foundCard === amount) {
       setTimerRunning(false);
     }
