@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
+import { FoundCardContext, SelectedCardContext } from "./SelectedCardContext";
 
 export default function Timer({ amount }) {
   const [timerRunning, setTimerRunning] = useState(false);
+  const [selectedCards, setSelectedCards] = useContext(SelectedCardContext);
   const [timer, setTimer] = useState(0);
   const [stopWatch, setStopWatch] = useState(null);
+  const [foundCard] = useContext(FoundCardContext);
 
   useEffect(() => {
     if (timerRunning) {
@@ -13,6 +16,18 @@ export default function Timer({ amount }) {
       stopTimer();
     }
   }, [timerRunning]);
+
+  useEffect(()=> {
+    if(selectedCards.card1 !== "") {
+      setTimerRunning(true)
+    }
+  }, [selectedCards])
+
+  useEffect(() => {
+    if(foundCard === amount) {
+      setTimerRunning(false);
+    }
+  }, [foundCard])
 
   const startTimer = () => {
     setStopWatch(
@@ -28,26 +43,12 @@ export default function Timer({ amount }) {
 
   return (
     <StopWatch>
-      <button
-        onClick={() => {
-          setTimerRunning(true);
-        }}
-      >
-        Start
-      </button>
       <p>
         {Math.floor(timer / 60) < 10
           ? "0" + Math.floor(timer / 60)
           : Math.floor(timer / 60)}
         :{timer % 60 < 10 ? "0" + (timer % 60) : timer % 60}
       </p>
-      <button
-        onClick={() => {
-          setTimerRunning(false);
-        }}
-      >
-        Stop
-      </button>
     </StopWatch>
   );
 }

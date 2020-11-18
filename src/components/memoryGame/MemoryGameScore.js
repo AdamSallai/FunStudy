@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { ScoreContext } from "./SelectedCardContext";
+
 
 export default function MemoryGameScore(    ) {
+  const [score] = useContext(ScoreContext)
 
   return (
     <Score>
-      <p>Score: {}</p>
+      <p>Score: {score}</p>
     </Score>
   );
 }
