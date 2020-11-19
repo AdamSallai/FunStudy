@@ -54,6 +54,7 @@ export default function LearningCard({
     const requestBody = {
       word: card.word,
       definition: card.definition,
+      email: localStorage.getItem("email")
     };
 
     fetch("http://localhost:8080/savecard", {
