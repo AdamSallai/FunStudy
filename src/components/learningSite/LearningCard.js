@@ -2,11 +2,18 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function LearningCard({ callback, card, points, setPoints }) {
+export default function LearningCard({
+  callback,
+  card,
+  points,
+  setPoints,
+  difficulty,
+}) {
   const [transform, setTransform] = useState("front");
   const [buttonText] = useState("Guess");
   const [disabled, setDisability] = useState(false);
   const [guessed, setGuessed] = useState("unguessed");
+  console.log(card);
 
   const increasePoints = () => {
     if (isTheWordGuessed()) {
@@ -28,7 +35,7 @@ export default function LearningCard({ callback, card, points, setPoints }) {
     setDisability(true);
     if (isTheWordGuessed()) {
       setGuessed("guessed");
-    }else{
+    } else {
       unknownCardRequest();
     }
   };
@@ -42,7 +49,6 @@ export default function LearningCard({ callback, card, points, setPoints }) {
   //   sessionStorage.setItem("unknownCardData", card.word);
   //   return true;
   // };
-
 
   const unknownCardRequest = async () => {
     const requestBody = {
@@ -73,7 +79,7 @@ export default function LearningCard({ callback, card, points, setPoints }) {
             <div className="text-container">
               <h3>Learning Card</h3>
               <h5>by Fun Study</h5>
-              <img className="img" src={card.image_url} alt="" />
+              <img className="img" src={card.imageUrl} alt="" />
               <p>{card.definition}</p>
               <br />
             </div>
