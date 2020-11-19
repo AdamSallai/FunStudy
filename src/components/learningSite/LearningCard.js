@@ -47,7 +47,8 @@ export default function LearningCard({ callback, card, points, setPoints }) {
   const unknownCardRequest = async () => {
     const requestBody = {
       word: card.word,
-      definition: card.definition
+      definition: card.definition,
+      email: localStorage.getItem("email")
     };
 
     fetch("http://localhost:8080/savecard", {

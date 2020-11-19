@@ -24,8 +24,8 @@ export default function Login() {
   };
 
   const setUserToSession = () => {
-    sessionStorage.clear();
-    sessionStorage.setItem("email", email);
+    localStorage.clear();
+    localStorage.setItem("email", email);
   };
 
   return (
