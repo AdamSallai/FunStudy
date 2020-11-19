@@ -7,7 +7,6 @@ export default function LearningCard({ callback, card, points, setPoints }) {
   const [buttonText] = useState("Guess");
   const [disabled, setDisability] = useState(false);
   const [guessed, setGuessed] = useState("unguessed");
-  const [unknown, setUnknown] = useState(false);
 
   const increasePoints = () => {
     if (isTheWordGuessed()) {
@@ -20,8 +19,6 @@ export default function LearningCard({ callback, card, points, setPoints }) {
     if (card.word === guess) {
       return true;
     } else {
-      isUnknownCardToSession();
-      setUnknown(true);
       return false;
     }
   };
@@ -31,6 +28,8 @@ export default function LearningCard({ callback, card, points, setPoints }) {
     setDisability(true);
     if (isTheWordGuessed()) {
       setGuessed("guessed");
+    }else{
+      unknownCardRequest();
     }
   };
 
@@ -39,11 +38,28 @@ export default function LearningCard({ callback, card, points, setPoints }) {
     callback(Math.random());
   };
 
-  const isUnknownCardToSession = () => {
-    sessionStorage.setItem("unknownCardData", card.word);
-    return true;
-  };
+  // const isUnknownCardToSession = () => {
+  //   sessionStorage.setItem("unknownCardData", card.word);
+  //   return true;
+  // };
 
+
+  const unknownCardRequest = async () => {
+    const requestBody = {
+      word: card.word,
+      definition: card.definition
+    };
+
+    fetch("http://localhost:8080/savecard", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(requestBody),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <div>
