@@ -5,6 +5,7 @@ import getCardData from "../GetCardData";
 export default function GetMemoryCard() {
   const [card, setCard] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  console.log(card);
 
   useEffect(() => {
     // async function getData() {
@@ -22,7 +23,7 @@ export default function GetMemoryCard() {
     return [
       <MemoryCard key={card.word} content={card.word} word={card.word} />,
       <MemoryCard
-        key={card.definition}
+        key={card.id}
         content={card.definition}
         word={card.word}
       />,
