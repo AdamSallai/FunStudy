@@ -25,4 +25,8 @@ function getCardDataWithPicture(setCard, setIsLoading) {
     });
 }
 
-export{getCardDataWithOutPicture,getCardDataWithPicture}
+function clearMemoryGame() {
+  fetch("http://localhost:8080/clear-memory-game");
+}
+
+export{getCardDataWithOutPicture,getCardDataWithPicture,clearMemoryGame}
