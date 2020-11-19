@@ -8,13 +8,6 @@ export default function GetMemoryCard() {
   console.log(card);
 
   useEffect(() => {
-    // async function getData() {
-    //   let data = await getCardData();
-    //   setCard(data);
-    //   setIsLoading(true);
-    // }
-    // getData();
-
     setIsLoading(true);
     getCardData(setCard, setIsLoading);
   }, []);
@@ -22,11 +15,7 @@ export default function GetMemoryCard() {
   if (!isLoading) {
     return [
       <MemoryCard key={card.word} content={card.word} word={card.word} />,
-      <MemoryCard
-        key={card.id}
-        content={card.definition}
-        word={card.word}
-      />,
+      <MemoryCard key={card.definition} content={card.definition} word={card.word} />,
     ];
   } else return [];
 }
