@@ -23,7 +23,6 @@ export default function Registration() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
       });
   };
 
@@ -39,7 +38,7 @@ export default function Registration() {
           required
           onChange={(e) => setEmail(e.target.value)}
         ></input>
-        <input
+        {/* <input
           type="text"
           placeholder="First name"
           name="firstName"
@@ -62,7 +61,7 @@ export default function Registration() {
           autoComplete="off"
           required
           onChange={(e) => setDate(e.target.value)}
-        ></input>
+        ></input> */}
         <input
           type="password"
           placeholder="Password"

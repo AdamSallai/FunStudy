@@ -31,7 +31,6 @@ export default function MemoryCard({ content, word }) {
   };
 
   const cardFound = () => {
-    console.log("found");
     setFound(true)
   }
 
