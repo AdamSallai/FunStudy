@@ -1,5 +1,5 @@
 
-function getCardDataWithOutPicture(setCard, setIsLoading) {
+export function getCardDataWithOutPicture(setCard, setIsLoading) {
   fetch("http://localhost:8080/card-without-picture")
     .then((res) => res.json())
     .then((data) => {
@@ -8,7 +8,7 @@ function getCardDataWithOutPicture(setCard, setIsLoading) {
     });
 }
 
-function getCardDataWithPicture(setCard, setIsLoading) {
+export function getCardDataWithPicture(setCard, setIsLoading) {
   fetch("http://localhost:8080/card-with-picture")
     .then((res) => res.json())
     .then((data) => {
@@ -17,8 +17,7 @@ function getCardDataWithPicture(setCard, setIsLoading) {
     });
 }
 
-function clearMemoryGame() {
+export function clearMemoryGame() {
   fetch("http://localhost:8080/clear-memory-game");
 }
 
-export{getCardDataWithOutPicture,getCardDataWithPicture,clearMemoryGame}

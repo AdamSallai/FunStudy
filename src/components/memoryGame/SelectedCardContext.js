@@ -14,7 +14,6 @@ export const SelectedCardProvider = (props) => {
   useEffect(() => {
     checkSelectedCards();
     checkFinihsed();
-    console.log(score);
   }, [selectedCards]);
 
 

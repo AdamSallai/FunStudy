@@ -3,7 +3,7 @@ import styled from "styled-components";
 import GetMemoryCard from "./GetMemoryCard";
 import Timer from "./Stopwatch";
 import MemoryGameScore from "./MemoryGameScore";
-import clearMemoryGame from "../GetCardData";
+import {clearMemoryGame} from "../GetCardData";
 
 export default function MemoryGame(props) {
   const content = [];

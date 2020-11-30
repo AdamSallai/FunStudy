@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import MemoryCard from "./MemoryCard";
-import getCardData from "../GetCardData";
+import {getCardDataWithOutPicture} from "../GetCardData";
 
 export default function GetMemoryCard() {
   const [card, setCard] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  console.log(card);
 
   useEffect(() => {
     setIsLoading(true);
-    getCardData(setCard, setIsLoading);
+    getCardDataWithOutPicture(setCard, setIsLoading);
   }, []);
 
   if (!isLoading) {
