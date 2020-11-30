@@ -1,4 +1,3 @@
-
 export function getCardData(setCard, setIsLoading) {
   fetch("http://localhost:8080/card")
     .then((res) => res.json())
@@ -25,8 +24,3 @@ export function getCardDataWithPicture(setCard, setIsLoading) {
        setIsLoading(false);
     });
 }
-
-export function clearMemoryGame() {
-  fetch("http://localhost:8080/clear-memory-game");
-}
-
