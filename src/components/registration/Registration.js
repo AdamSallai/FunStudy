@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 
 export default function Registration() {
   const [email, setEmail] = useState("");
@@ -38,30 +38,6 @@ export default function Registration() {
           required
           onChange={(e) => setEmail(e.target.value)}
         ></input>
-        {/* <input
-          type="text"
-          placeholder="First name"
-          name="firstName"
-          autoComplete="off"
-          required
-          onChange={(e) => setFirstName(e.target.value)}
-        ></input>
-        <input
-          type="text"
-          placeholder="Last name"
-          name="lastName"
-          autoComplete="off"
-          required
-          onChange={(e) => setLastName(e.target.value)}
-        ></input>
-        <input
-          type="date"
-          placeholder="YYYY/MM/DD"
-          name="date"
-          autoComplete="off"
-          required
-          onChange={(e) => setDate(e.target.value)}
-        ></input> */}
         <input
           type="password"
           placeholder="Password"

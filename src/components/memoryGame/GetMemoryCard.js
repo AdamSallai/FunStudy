@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MemoryCard from "./MemoryCard";
-import {getCardDataWithOutPicture} from "../GetCardData";
+import {getCardData} from "../GetCardData";
 
 export default function GetMemoryCard() {
   const [card, setCard] = useState();
@@ -8,7 +8,7 @@ export default function GetMemoryCard() {
 
   useEffect(() => {
     setIsLoading(true);
-    getCardDataWithOutPicture(setCard, setIsLoading);
+    getCardData(setCard, setIsLoading);
   }, []);
 
   if (!isLoading) {

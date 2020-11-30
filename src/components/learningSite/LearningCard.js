@@ -45,11 +45,6 @@ export default function LearningCard({
     callback(Math.random());
   };
 
-  // const isUnknownCardToSession = () => {
-  //   sessionStorage.setItem("unknownCardData", card.word);
-  //   return true;
-  // };
-
   const unknownCardRequest = async () => {
     const requestBody = {
       word: card.word,

@@ -3,13 +3,11 @@ import styled from "styled-components";
 import GetMemoryCard from "./GetMemoryCard";
 import Timer from "./Stopwatch";
 import MemoryGameScore from "./MemoryGameScore";
-import {clearMemoryGame} from "../GetCardData";
 
 export default function MemoryGame(props) {
   const content = [];
   const difficulty = props.location.search.split("=")[1];
   const amount = difficulty === "easy" ? 4 : 8;
-  clearMemoryGame();
   for (let i = 0; i < amount; i++) {
     const memo = GetMemoryCard();
     content.push(memo[0]);
