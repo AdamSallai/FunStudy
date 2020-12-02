@@ -7,10 +7,20 @@ export function getCardData(setCard, setIsLoading) {
       Authorization: "Bearer " + token,
     },
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw Error;
+      }
+    })
     .then((data) => {
       setCard(data);
       setIsLoading(false);
+    })
+    .catch(() => {
+      window.location.href = "/";
+      alert("Please log in");
     });
 }
 
@@ -23,10 +33,20 @@ export function getCardDataWithOutPicture(setCard, setIsLoading) {
       Authorization: "Bearer " + token,
     },
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw Error;
+      }
+    })
     .then((data) => {
       setCard(data);
       setIsLoading(false);
+    })
+    .catch(() => {
+      window.location.href = "/";
+      alert("Please log in");
     });
 }
 
@@ -39,9 +59,19 @@ export function getCardDataWithPicture(setCard, setIsLoading) {
       Authorization: "Bearer " + token,
     },
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw Error;
+      }
+    })
     .then((data) => {
       setCard(data);
       setIsLoading(false);
+    })
+    .catch(() => {
+      window.location.href = "/";
+      alert("Please log in");
     });
 }
