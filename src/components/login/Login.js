@@ -10,6 +10,7 @@ export default function Login() {
       password: password,
     };
 
+
     fetch("http://localhost:8080/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -18,14 +19,14 @@ export default function Login() {
       .then((res) => res.json())
       .then((data) => {
         if (data) {
-          setUserToSession();
+          setUserToSession(data);
         }
       });
   };
 
-  const setUserToSession = () => {
+  const setUserToSession = (data) => {
     localStorage.clear();
-    localStorage.setItem("email", email);
+    localStorage.setItem("token", data.token);
   };
 
   return (

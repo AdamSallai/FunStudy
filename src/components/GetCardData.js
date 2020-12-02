@@ -1,26 +1,47 @@
 export function getCardData(setCard, setIsLoading) {
-  fetch("http://localhost:8080/card")
+  const token = window.localStorage.getItem("token");
+  fetch("http://localhost:8080/card", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+  })
     .then((res) => res.json())
     .then((data) => {
-       setCard(data);
-       setIsLoading(false);
+      setCard(data);
+      setIsLoading(false);
     });
 }
 
 export function getCardDataWithOutPicture(setCard, setIsLoading) {
-  fetch("http://localhost:8080/card-without-picture")
+  const token = window.localStorage.getItem("token");
+  fetch("http://localhost:8080/card-without-picture", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+  })
     .then((res) => res.json())
     .then((data) => {
-       setCard(data);
-       setIsLoading(false);
+      setCard(data);
+      setIsLoading(false);
     });
 }
 
 export function getCardDataWithPicture(setCard, setIsLoading) {
-  fetch("http://localhost:8080/card-with-picture")
+  const token = window.localStorage.getItem("token");
+  fetch("http://localhost:8080/card-with-picture", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+  })
     .then((res) => res.json())
     .then((data) => {
-       setCard(data);
-       setIsLoading(false);
+      setCard(data);
+      setIsLoading(false);
     });
 }
