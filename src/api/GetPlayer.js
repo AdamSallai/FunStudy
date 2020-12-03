@@ -32,19 +32,5 @@ export function deletePlayer(id) {
       "Content-Type": "application/json",
       Authorization: "Bearer " + token,
     },
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        throw Error;
-      }
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch(() => {
-      window.location.href = "/";
-      alert("Please log in");
-    });
+  });
 }
