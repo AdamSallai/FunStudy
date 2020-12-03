@@ -14,11 +14,20 @@ export default function Players() {
 
   if (!isLoading) {
     return (
-      <div>
+      <PlayerContainer>
         {players.map((player) => 
           <Player key={player.email} player={player}></Player>
         )}
-      </div>
+      </PlayerContainer>
     );
   } else return [];
 }
+
+
+const PlayerContainer = styled.div`
+  top: 120px;
+  position: relative;
+  width: 800px;
+  margin: auto;
+  text-align: center;
+`
