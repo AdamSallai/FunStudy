@@ -10,6 +10,7 @@ import LearningData from "./components/learningSite/LearningData";
 import { SelectedCardProvider } from "./components/memoryGame/SelectedCardContext";
 import Registration from './components/registration/Registration';
 import Login from './components/login/Login';
+import Players from "./components/playerList/players";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/memorygame" exact component={MemoryGame} />
         </SelectedCardProvider>
         <Route path="/learning" exact component={LearningData} />
+        <Route path = "/players" exact component={Players}></Route>
     </Router>
   );
 }
