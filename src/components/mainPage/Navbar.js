@@ -45,6 +45,9 @@ export default function Navbar() {
           <Link className="link" to="registration" smooth={true} duration={1000}>
             Registration
           </Link>
+          <LinkToRoute className="link" to="/players">
+            Players
+          </LinkToRoute>
         </FlexBox>
       </Nav>
       <ArrowToTop onClick={() => scroll.scrollToTop()}>↑</ArrowToTop>

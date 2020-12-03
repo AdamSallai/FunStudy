@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LearningCard from "./LearningCard";
-import {getCardDataWithOutPicture, getCardDataWithPicture} from "../GetCardData";
+import {getCardDataWithOutPicture, getCardDataWithPicture} from "../../api/GetCardData";
 
 export default function LearningData(props) {
   const [card, setCard] = useState();
