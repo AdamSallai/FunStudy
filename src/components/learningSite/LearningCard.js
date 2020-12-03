@@ -13,7 +13,6 @@ export default function LearningCard({
   const [buttonText] = useState("Guess");
   const [disabled, setDisability] = useState(false);
   const [guessed, setGuessed] = useState("unguessed");
-  console.log(card);
 
   const increasePoints = () => {
     if (isTheWordGuessed()) {
@@ -49,18 +48,17 @@ export default function LearningCard({
     const requestBody = {
       word: card.word,
       definition: card.definition,
-      email: localStorage.getItem("email")
     };
+    const token = window.localStorage.getItem("token");
 
     fetch("http://localhost:8080/savecard", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestBody),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    });
   };
 
   return (
