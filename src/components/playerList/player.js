@@ -5,19 +5,29 @@ import { deletePlayer } from "../../api/GetPlayer";
 export default function Player({ player }) {
   return (
     <PlayerDiv>
-      <p>{player.firstName}</p>
-      <p>{player.lastName}</p>
-      <p>{player.email}</p>
+      <Box>{player.firstName}</Box>
+      <Box>{player.lastName}</Box>
+      <Box>{player.email}</Box>
+      <Box>
       <button
         onClick={() => {
           deletePlayer(player.id);
-          window.location.href = "/players";
         }}
       >
         Delete player
       </button>
+      </Box>
     </PlayerDiv>
   );
 }
 
-const PlayerDiv = styled.div``;
+const PlayerDiv = styled.div`
+  height: 50px;
+`;
+
+
+const Box = styled.div`
+  width: 200px;
+  display: inline-block;
+  margin: 0px;
+`;

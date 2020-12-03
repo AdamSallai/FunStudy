@@ -33,18 +33,17 @@ export function deletePlayer(id) {
       Authorization: "Bearer " + token,
     },
   })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        throw Error;
-      }
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch(() => {
-      window.location.href = "/";
-      alert("Please log in");
-    });
+  .then((res) => {
+    console.log(res)
+    if (!res.ok){
+      throw Error;
+    }
+  })
+  .then(() => {
+    window.location.href = "/players";
+  })
+  .catch(() => {
+    window.location.href = "/";
+    alert("Please log in as admin");
+  });
 }
